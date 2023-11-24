@@ -1,0 +1,37 @@
+@use "../../styles/utils.scss";
+
+.slider {
+  background-color: var(--color-blue-gray);
+  height: var(--config-header-slider-height);
+  padding: 0 var(--config-content-margin);
+  color: var(--color-white);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  align-items: center;
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+  }
+
+  .slides {
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    @include utils.HiddenScroll;
+
+    >div {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: center;
+      background-color: var(--color-blue-gray);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.header {
+  grid-column: 1/4;
+  width: 100vw;
+  position: sticky;
+  top: 0;
+
+  .logosBar {
+    height: var(--config-header-height);
+    padding: 0 var(--config-content-margin);
+  }
+}

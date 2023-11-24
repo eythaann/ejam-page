@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "incremental": true,                                  /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
+
+    "target": "es2016",                                   /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "lib": ["ESNext", "DOM"],                             /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    "jsx": "react",                                       /* Specify what JSX code is generated. */
+
+    /* Modules */
+    "module": "commonjs",                                 /* Specify what module code is generated. */
+    "noEmit": true,                                       /* Disable emitting files from a compilation. */
+    "esModuleInterop": true,                              /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,             /* Ensure that casing is correct in imports. */
+
+    /* Type Checking */
+    "strict": true,                                       /* Enable all strict type-checking options. */
+    "noImplicitAny": true,                                /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+    "noImplicitThis": true,                               /* Enable error reporting when 'this' is given the type 'any'. */
+    "useUnknownInCatchVariables": true,                   /* Default catch clause variables as 'unknown' instead of 'any'. */
+    "alwaysStrict": true,                                 /* Ensure 'use strict' is always emitted. */
+    "exactOptionalPropertyTypes": false,                  /* Interpret optional property types as written, rather than adding 'undefined'. */
+    "noImplicitReturns": true,                            /* Enable error reporting for codepaths that do not explicitly return in a function. */
+    "noFallthroughCasesInSwitch": true,                   /* Enable error reporting for fallthrough cases in switch statements. */
+    "noUncheckedIndexedAccess": true,                     /* Add 'undefined' to a type when accessed using an index. */
+    "noImplicitOverride": true,                           /* Ensure overriding members in derived classes are marked with an override modifier. */
+    "noPropertyAccessFromIndexSignature": false,           /* Enforces using indexed accessors for keys declared using an indexed type. */
+  },
+  "include": ["./src"]
+}

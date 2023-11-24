@@ -1,0 +1,36 @@
+:root {
+  --primary-color: var(--color-gray-900);
+  --secondary-color: var(--color-gray-50);
+
+  --main-typo: 'Manrope', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+::selection {
+  background-color: var(--color-gray-700);
+  color: var(--secondary-color);
+}
+
+body {
+  display: grid;
+  grid-template-columns: var(--config-content-margin) 1fr var(--config-content-margin);
+  gap: 20px;
+}
+
+body > * {
+  grid-column: 2/3;
+}
+
+
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: var(--color-black);
+    --secondary-color: var(--color-white);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,51 @@
+:root {
+  /* colors */
+  --color-white: #ffffff;
+
+  --color-gray-50: #fdfdfd;
+  --color-gray-100: #f8f8f8;
+  --color-gray-200: #e6e6e6;
+  --color-gray-300: #d5d5d5;
+  --color-gray-400: #b1b1b1;
+  --color-gray-500: #909090;
+  --color-gray-600: #6d6d6d;
+  --color-gray-700: #464646;
+  --color-gray-800: #222222;
+  --color-gray-900: #151515;
+
+  --color-black: #000000;
+
+  --color-blue-100: #e0f2ff;
+
+  --color-red-800: #ea3829;
+
+
+  --color-yellow-300: #f8d904;
+  --color-yellow-400: #e8c600;
+
+  /* special colors */
+  --color-blue-gray: #252F3D;
+
+  /* font variables */
+  --placeholder-font-color: var(--color-gray-400);
+  --error-font-color: var(--color-red-800);
+
+  /* config variables */
+  --config-border-radius: 8px;
+  --config-header-height: 62px;
+  --config-header-slider-height: 40px;
+  --config-content-margin: 5%;
+
+  /* z indexs */
+  --z-header: 1;
+}
+
+@media screen and (min-width: 1025px) {
+  :root {
+    --config-content-margin: 10%;
+    --config-header-height: 96px;
+    --config-header-slider-height: 50px;
+
+    --z-header: 2;
+  }
+}
