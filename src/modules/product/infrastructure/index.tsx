@@ -33,7 +33,7 @@ export default function Product() {
       <div className={styles.specialPrice}><i>ONE TIME ONLY</i> special price for 6 extra Clarifion for only <i>$14 each</i> ($84.00 total!)</div>
 
       <div className={styles.left}>
-        <img src="/assets/images/clarifon.png" />
+        <img src="/assets/images/clarifon.png" loading="lazy"/>
         <div className={styles.comments}>
           <FakeComment />
         </div>
@@ -41,7 +41,7 @@ export default function Product() {
 
       <div className={styles.product}>
         <div className={styles.image}>
-          <img src="/assets/images/clarifon_icon.svg"/>
+          <img src="/assets/images/clarifon_icon.svg" loading="lazy"/>
         </div>
         <div className={styles.details}>
           <div>
@@ -102,7 +102,7 @@ export default function Product() {
       <a className={styles.cancel}>No thanks, I don't want this.</a>
 
       <div className={styles.guarantee}>
-        <img src="/assets/logos/guarantee.svg" />
+        <img src="/assets/logos/guarantee.svg" loading="lazy" />
         <p>
           If you are not completely thrilled with your Clarifion - We have a <b>30 day satisfaction guarantee</b>.
           Please refer to our return policy at the bottom of the page for more details. Happy Shopping!

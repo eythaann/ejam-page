@@ -7,7 +7,7 @@ import styles from './FakeComment.module.scss';
 export const FakeComment = () => {
   return <div className={styles.comment}>
     <div className={styles.user}>
-      <img className={styles.avatar} src="/assets/images/avatar.svg"/>
+      <img className={styles.avatar} src="/assets/images/avatar.png" loading="lazy"/>
       <div className={styles.userInfo}>
         <div className={styles.stars}>
           <Icon name="star"/>
