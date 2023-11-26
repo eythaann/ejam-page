@@ -6,6 +6,7 @@
   --color-gray-100: #f8f8f8;
   --color-gray-200: #e6e6e6;
   --color-gray-300: #d5d5d5;
+  --color-gray-350: #cfcfcf;
   --color-gray-400: #b1b1b1;
   --color-gray-500: #909090;
   --color-gray-600: #6d6d6d;
@@ -15,23 +16,25 @@
 
   --color-black: #000000;
 
-  --color-blue-100: #e0f2ff;
+  --color-cyan-100: #EDF3FD;
 
-  --color-red-800: #ea3829;
+  --color-blue-400: #2C7EF8;
 
+  --color-red-300: #F82C2C;
 
-  --color-yellow-300: #f8d904;
-  --color-yellow-400: #e8c600;
+  --color-green-400: #59AE43;
 
-  /* special colors */
   --color-blue-gray: #252F3D;
 
+
+
   /* font variables */
+  --font-color: #4D5254;
   --placeholder-font-color: var(--color-gray-400);
   --error-font-color: var(--color-red-800);
 
   /* config variables */
-  --config-border-radius: 8px;
+  --config-border-radius: 10px;
   --config-header-height: 62px;
   --config-header-slider-height: 40px;
   --config-content-margin: 5%;
@@ -42,7 +45,7 @@
 
 @media screen and (min-width: 1025px) {
   :root {
-    --config-content-margin: 10%;
+    --config-content-margin: 8%;
     --config-header-height: 96px;
     --config-header-slider-height: 50px;
 

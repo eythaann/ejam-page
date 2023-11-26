@@ -2,6 +2,18 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* IE and Edge */
+}
+
+@mixin circle($size: 20px) {
+  border-radius: 50%;
+  min-width: $size;
+  min-height: $size;
+  width: $size;
+  height: $size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
 }

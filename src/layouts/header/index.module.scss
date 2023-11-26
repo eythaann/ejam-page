@@ -1,11 +1,37 @@
+@use '../../styles/views.scss';
+
 .header {
   grid-column: 1/4;
   width: 100vw;
   position: sticky;
   top: 0;
+  z-index: var(--z-header);
 
   .logosBar {
     height: var(--config-header-height);
     padding: 0 var(--config-content-margin);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-white);
+
+    >object {
+      width: 106px;
+      @include views.desktop {
+        width: auto;
+      }
+    }
+
+    >div {
+      display: flex;
+      gap: 10%;
+
+      >object {
+        width: 44px;
+        @include views.desktop {
+          width: auto;
+        }
+      }
+    }
   }
 }

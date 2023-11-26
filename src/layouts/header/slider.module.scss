@@ -1,4 +1,5 @@
 @use "../../styles/utils.scss";
+@use "../../styles/views.scss";
 
 .slider {
   background-color: var(--color-blue-gray);
@@ -10,11 +11,28 @@
   grid-template-columns: 20px 1fr 20px;
   align-items: center;
 
+  @include views.desktop {
+    grid-template-columns: 1fr;
+  }
+
   .button {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 30px;
     font-weight: 800;
+
+    @include views.desktop {
+      display: none;
+    }
+    
+    &.right {
+      transform: rotate(180deg);
+    }
+
+    >img {
+      width: 10px;
+    }
   }
 
   .slides {
@@ -25,13 +43,24 @@
     scroll-snap-type: x mandatory;
     @include utils.HiddenScroll;
 
+    @include views.desktop {
+      justify-content: space-between;
+    }
+
     >div {
       min-width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 5px;
       scroll-snap-align: center;
       background-color: var(--color-blue-gray);
+      font-size: 12px;
+      font-weight: 500;
+
+      @include views.desktop {
+        min-width: auto;
+      }
     }
   }
 }

@@ -71,7 +71,7 @@ module.exports = {
       destructuredArrayIgnorePattern: '^_',
     }],
     '@stylistic/quotes': ['error', 'single'],
-    '@stylistic/semi': 'off',
+    '@stylistic/semi': 'error',
     '@stylistic/no-multi-spaces': ['error'],
     '@stylistic/no-trailing-spaces': ['error'],
     '@stylistic/space-infix-ops': ['error'],

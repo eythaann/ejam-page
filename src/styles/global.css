@@ -1,5 +1,5 @@
 :root {
-  --primary-color: var(--color-gray-900);
+  --primary-color: var(--font-color);
   --secondary-color: var(--color-gray-50);
 
   --main-typo: 'Manrope', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,13 +13,15 @@
 body {
   display: grid;
   grid-template-columns: var(--config-content-margin) 1fr var(--config-content-margin);
-  gap: 20px;
 }
 
 body > * {
   grid-column: 2/3;
 }
 
+b {
+  font-weight: 700;
+}
 
 @media (prefers-contrast: high) {
   :root {

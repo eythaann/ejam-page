@@ -1,0 +1,32 @@
+@use '../../styles/views.scss';
+
+.footer {
+  grid-column: 1/4;
+  width: 100%;
+  height: 102px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-blue-gray);
+  color: var(--color-white);
+  font-size: 12px;
+  gap: 10px;
+
+  @include views.desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 var(--config-content-margin);
+  }
+
+  .copyright {
+    display: flex;
+    gap: 10px;
+  }
+
+  .secure {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

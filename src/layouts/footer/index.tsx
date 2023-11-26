@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { Link, Outlet } from 'react-router-dom';
+import { Icon } from '../components/icon';
 
-import style from './index.module.css';
+import style from './index.module.scss';
 
-export const Header = () => {
-  return <>
-    <div className={style.header}>
-      test
+export const Footer = () => {
+  return <footer className={style.footer}>
+    <div className={style.copyright}>
+      <span>Copyright (c) 2023</span>|<span>Clarifionsupport@clarifion.com</span>
     </div>
-    <Outlet/>
-  </>;
+    <div className={style.secure}>
+      <Icon name="lock"/> Secure 256-bit SSL encryption.
+    </div>
+  </footer>;
 };
