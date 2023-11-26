@@ -4,6 +4,7 @@ import * as esbuild from 'esbuild';
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
 import fs from 'fs';
 import path from 'path';
+import { exit } from 'process';
 
 const { parsed: ENV } = loadEnv();
 
@@ -91,8 +92,8 @@ const consolePrinter = {
 const context = await esbuild.context({
   entryPoints: ['src/index.tsx'],
   bundle: true,
-  minify: process.env.ambient === 'production',
-  sourcemap: process.env.ambient !== 'production',
+  minify: !isDevMode,
+  sourcemap: isDevMode,
   outfile: 'dist/bundle.js',
   define: {
     'process.env': JSON.stringify(ENV || {}),
@@ -115,4 +116,7 @@ if (isDevMode) {
   import('./server.js').then(() => {
     context.watch();
   });
+} else {
+  context.rebuild();
+  exit();
 }
