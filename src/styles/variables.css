@@ -2,13 +2,13 @@
   /* colors */
   --color-white: #ffffff;
 
-  --color-gray-50: #fdfdfd;
+  --color-gray-50: #fafafa;
   --color-gray-100: #f8f8f8;
   --color-gray-200: #e6e6e6;
   --color-gray-300: #d5d5d5;
   --color-gray-350: #cfcfcf;
   --color-gray-400: #b1b1b1;
-  --color-gray-500: #909090;
+  --color-gray-500: #969696;
   --color-gray-600: #6d6d6d;
   --color-gray-700: #464646;
   --color-gray-800: #222222;
@@ -22,6 +22,7 @@
 
   --color-red-300: #F82C2C;
 
+  --color-green-300: #5BB59A;
   --color-green-400: #59AE43;
 
   --color-blue-gray: #252F3D;

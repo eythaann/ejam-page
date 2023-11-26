@@ -1,3 +1,5 @@
+@use './views.scss';
+
 @mixin HiddenScroll {
   &::-webkit-scrollbar {
     display: none;
@@ -15,5 +17,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: visible;
+}
+
+@mixin fontPixelToEm($size: 16) {
+  $sizeMobile: $size / 16;
+  font-size: unquote($sizeMobile + 'em');
+  line-height: unquote(($sizeMobile * 1.4) + 'em');
+
+  @include views.desktop {
+    $sizeDesktop: ($size) / 16;
+    font-size: unquote($sizeDesktop + 'em');
+    line-height: unquote(($sizeDesktop * 1.4) + 'em');
+  }
 }

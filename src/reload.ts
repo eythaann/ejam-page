@@ -4,6 +4,8 @@ export const setReloadOnChanges = async () => {
   if (Env.ambient !== 'production') {
     const eventSource = new EventSource('http://localhost:3000/events');
 
+    window.addEventListener('beforeunload', () => eventSource.close());
+
     eventSource.onerror = () => {
       console.log('Fail Hot Reloading, retrying...');
       setTimeout(() => setReloadOnChanges(), 3000);

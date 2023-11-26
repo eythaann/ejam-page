@@ -1,0 +1,42 @@
+@use '../../../styles/utils.scss';
+
+.comment {
+  background-color: var(--color-white);
+  border-radius: var(--config-border-radius);
+  padding: 24px;
+
+  .user {
+    display: flex;
+    gap: 13px;
+    margin-bottom: 18px;
+
+    .avatar {
+      width: 48px;
+    }
+
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .stars {
+        display: flex;
+      }
+
+      .name {
+        display: flex;
+        gap: 10px;
+        font-weight: 700;
+        @include utils.fontPixelToEm(12);
+
+        .verified {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--color-green-300);
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

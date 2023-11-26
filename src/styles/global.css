@@ -1,6 +1,6 @@
 :root {
   --primary-color: var(--font-color);
-  --secondary-color: var(--color-gray-50);
+  --secondary-color: var(--color-white);
 
   --main-typo: 'Manrope', Tahoma, Geneva, Verdana, sans-serif;
 }
