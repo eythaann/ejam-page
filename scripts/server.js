@@ -13,7 +13,7 @@ app.use(
   express.static(path.join(__dirname, '../dist'))
 );
 
-export let clients = [];
+let clients = [];
 
 if (process.argv.includes('--dev')) {
   app.post('/esbuild/change', (req, res) => {

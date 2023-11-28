@@ -1,44 +1,15 @@
-import crypto from 'crypto';
+import { deleteFolderRecursive, sendEventOnChanges } from './utils.js';
 import { config as loadEnv } from 'dotenv';
 import * as esbuild from 'esbuild';
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
 import fs from 'fs';
-import path from 'path';
 import { exit } from 'process';
 
 const { parsed: ENV } = loadEnv();
 
 const isDevMode = process.argv.includes('--dev');
 
-const deleteFolderRecursive = (directoryPath) => {
-  if (fs.existsSync(directoryPath)) {
-    fs.readdirSync(directoryPath).forEach((file) => {
-      const curPath = path.join(directoryPath, file);
-      if (fs.lstatSync(curPath).isDirectory()) {
-        deleteFolderRecursive(curPath);
-      } else {
-        fs.unlinkSync(curPath);
-      }
-    });
-    fs.rmdirSync(directoryPath);
-  }
-};
-
-const areFilesEqual = async (file1, file2) => {
-  const hash1 = crypto.createHash('sha256');
-  const hash2 = crypto.createHash('sha256');
-
-  hash1.update(file1);
-  hash2.update(file2);
-
-  return hash1.digest('hex') === hash2.digest('hex');
-};
-
 let rebuildCounter = 0;
-let isFirstBuild = true;
-let lastBundleCss;
-let lastBundleJs;
-
 const consolePrinter = {
   name: 'consolePrinter',
   setup(build) {
@@ -50,7 +21,6 @@ const consolePrinter = {
 
       deleteFolderRecursive('dist');
       fs.mkdirSync('dist');
-
       fs.cpSync('src/public', 'dist', {
         'recursive': true,
       });
@@ -62,29 +32,10 @@ const consolePrinter = {
         return;
       }
 
-      const currentBundleCss = fs.readFileSync('dist/bundle.css');
-      const currentBundleJs = fs.readFileSync('dist/bundle.js');
-
-      if (!isFirstBuild) {
-        const hasChangesOnCSS = !await areFilesEqual(currentBundleCss, lastBundleCss);
-        const hasChangesOnJS = !await areFilesEqual(currentBundleJs, lastBundleJs);
-        fetch('http://localhost:3000/esbuild/change', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            hasChangesOnCSS,
-            hasChangesOnJS,
-          }),
-        });
+      if (isDevMode) {
+        sendEventOnChanges();
+        console.log(`Server on http://localhost:${process.env.PORT || 3000}\n`);
       }
-
-      lastBundleCss = currentBundleCss;
-      lastBundleJs = currentBundleJs;
-
-      console.log(`Server on http://localhost:${process.env.PORT || 3000}\n`);
-      isFirstBuild = false;
     });
   },
 };
@@ -112,11 +63,12 @@ const context = await esbuild.context({
   ],
 });
 
-if (isDevMode) {
-  import('./server.js').then(() => {
-    context.watch();
-  });
-} else {
-  context.rebuild();
-  exit();
+if (!isDevMode) {
+  await context.rebuild();
+  console.log('Build finished.');
+  exit(0);
 }
+
+import('./server.js').then(() => {
+  context.watch();
+});
